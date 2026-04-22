@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>دواجن تك | منصة البرامج المجانية لصناعة الدواجن</title>
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Cairo + Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background: linear-gradient(145deg, #f4fbf4 0%, #e6f2e6 100%);
+            color: #1e3a2f;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #d9e6d4;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4c9e6f;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* header & hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1f5e3a, #2b8c4a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.05);
+            display: inline-block;
+            padding: 0 0.5rem;
+        }
+        .hero h1 i {
+            color: #e6a017;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            margin-left: 12px;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #2d6a4f;
+            background: #ffffffcc;
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            margin-top: 12px;
+            font-weight: 500;
+            border: 1px solid #cfe6cf;
+        }
+        .badge-free {
+            background: #f5bc70;
+            color: #2c3a1f;
+            font-size: 0.85rem;
+            border-radius: 30px;
+            padding: 0.25rem 1rem;
+            display: inline-block;
+            margin-top: 12px;
+            font-weight: 700;
+        }
+
+        /* stats / intro cards */
+        .intro-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 3rem;
+        }
+        .stat-card {
+            background: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            box-shadow: 0 6px 14px rgba(0,32,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            border-right: 4px solid #f1b24a;
+        }
+        .stat-card i {
+            font-size: 1.8rem;
+            color: #3b8b5e;
+        }
+
+        /* grid cards */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .tool-card {
+            background: #ffffffef;
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            overflow: hidden;
+            border: 1px solid #e2f0e2;
+            display: flex;
+            flex-direction: column;
+        }
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 36px -14px rgba(28, 65, 35, 0.2);
+            border-color: #bcddae;
+        }
+
+        .card-header {
+            background: linear-gradient(110deg, #f8fef5, #ecf9e8);
+            padding: 1rem 1.4rem;
+            border-bottom: 2px solid #cfebc2;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .card-header i {
+            font-size: 2rem;
+            color: #e68a2e;
+        }
+        .card-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            color: #1f543d;
+        }
+
+        .card-body {
+            padding: 1.2rem 1.4rem;
+            flex: 1;
+        }
+        .desc {
+            color: #2c4b3b;
+            font-size: 0.95rem;
+            line-height: 1.55;
+            margin-bottom: 1.2rem;
+            background: #fbfef7;
+            padding: 0.6rem 0.8rem;
+            border-radius: 20px;
+            border-right: 3px solid #f7bc45;
+        }
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #2b7a4b;
+            color: white;
+            padding: 0.6rem 1.3rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            margin-top: 0.4rem;
+        }
+        .link-btn i {
+            font-size: 0.9rem;
+        }
+        .link-btn:hover {
+            background: #1f5f3c;
+            transform: scale(0.98);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .url-text {
+            font-size: 0.7rem;
+            color: #668a72;
+            margin-top: 10px;
+            word-break: break-all;
+            direction: ltr;
+            text-align: left;
+            font-family: monospace;
+        }
+
+        /* footer contact */
+        .footer-contact {
+            background: #1f3d30;
+            border-radius: 2rem;
+            padding: 1.8rem 2rem;
+            color: #f1f7e8;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #2c5843;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 680px) {
+            body {
+                padding: 1rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-contact {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        .chick-icon {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%,100%{ transform: translateY(0);}
+            50%{ transform: translateY(-5px);}
+        }
+        .section-title {
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            border-right: 7px solid #f5b042;
+            padding-right: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1><i class="fas fa-chicken"></i> برمجيات شركة دواجن تك المجانية <i class="fas fa-egg"></i></h1>
+        <div class="sub">✨ مجموعة متكاملة من الأدوات الذكية لمربي الدواجن والمهندسين الزراعيين ✨</div>
+        <div class="badge-free"><i class="fas fa-gem"></i> مجاني بالكامل | يدعم الذكاء الاصطناعي والمحاكاة</div>
+    </div>
+
+    <div class="intro-stats">
+        <div class="stat-card"><i class="fas fa-robot"></i> 6+ أدوات تعمل بالذكاء الاصطناعي</div>
+        <div class="stat-card"><i class="fas fa-wind"></i> محاكاة تهوية متقدمة</div>
+        <div class="stat-card"><i class="fas fa-chart-line"></i> معادلات وتحليلات حرارية</div>
+        <div class="stat-card"><i class="fas fa-mobile-alt"></i> متوافق مع الموبايل والكمبيوتر</div>
+    </div>
+
+    <div class="section-title"><i class="fas fa-tools"></i> أدوات وبرامج دواجن تك</div>
+    <div class="tools-grid" id="toolsGrid"></div>
+
+    <div class="footer-contact">
+        <div class="contact-info">
+            <span><i class="fas fa-user-tie"></i> م.عبدالله عزوز</span>
+            <span><i class="fas fa-phone-alt"></i> 01119935714</span>
+            <span><i class="fas fa-phone-square"></i> 01515166699</span>
+            <span><i class="fas fa-envelope"></i> support@dawagen-tech.com</span>
+        </div>
+        <div class="copyright">
+            <i class="fas fa-copyright"></i> 2025 دواجن تك - جميع البرامج مجانية لدعم قطاع الدواجن
+        </div>
+    </div>
+</div>
+
+<script>
+    // تعريف البرامج والروابط والنبذة (حوالي 30 كلمة لكل أداة مستنبطة من الاسم والغرض)
+    const toolsData = [
+        {
+            name: "عدد الفراخ الذكي بالذكاء الاصطناعي",
+            url: "https://abdallaazouz.github.io/count_poultry_ai/",
+            icon: "fas fa-microchip",
+            description: "تقنية AI فائقة الدقة لحصر أعداد الطيور في العنبر من خلال الكاميرا. توفير الوقت والجهد وتحليل الكثافة بدقة متناهية."
+        },
+        {
+            name: "اكتشاف أمراض الدواجن بالصورة (زرق الطيور/الشكل)",
+            url: "https://abdallaazouz.github.io/poultry-diseases/",
+            icon: "fas fa-disease",
+            description: "تحليل صور الطيور للكشف المبكر عن الأمراض مثل زرق الطيور وتشوهات الشكل. يساعد في التدخل السريع وتقليل النفوق."
+        },
+        {
+            name: "محاكاة تهوية عنبر دواجن - تبريد مائي ورطوبة",
+            url: "https://abdallaazouz.github.io/Simulation-of-longitudinal-ventilation/",
+            icon: "fas fa-fan",
+            description: "نظام محاكاة متقدم للتهوية الطولية مع تأثير التبريد المائي والرطوبة. تصميم بيئة مثالية للدواجن وتقليل الإجهاد الحراري."
+        },
+        {
+            name: "إدارة مزارع دواجن (متكامل)",
+            url: "https://abdallaazouz.github.io/mangement-poulty-farm/",
+            icon: "fas fa-tractor",
+            description: "منصة لإدارة المزرعة بالكامل: متابعة الإنتاج، الأدوية، الأعلاف، والتقارير. تنظيم سهل للعاملين وتحسين الإنتاجية."
+        },
+        {
+            name: "الفحص اللوني لزرق الطيور",
+            url: "https://abdallaazouz.github.io/poultry-fecal-color-/",
+            icon: "fas fa-palette",
+            description: "تحليل لون المخلفات لتشخيص الحالة الصحية للقطيع. أداة ذكية تكشف مشاكل الهضم والأمراض المعوية من خلال اللون."
+        },
+        {
+            name: "تقدير وزن وعدد الفراخ بالذكاء الاصطناعي",
+            url: "https://abdallaazouz.github.io/Pixel-chicken-weight/",
+            icon: "fas fa-weight-hanging",
+            description: "نظام Pixel Chicken Weight: تقدير الوزن التقريبي والعدد باستخدام رؤية الكمبيوتر. متابعة النمو بدقة بدون إجهاد الطيور."
+        },
+        {
+            name: "نظام فحص مزارع الدواجن (قائمة مراجعة)",
+            url: "https://abdallaazouz.github.io/poultry_checklist/",
+            icon: "fas fa-clipboard-list",
+            description: "قوائم تفتيش شاملة لمزارع الدواجن. تساعد المربي في الالتزام بمعايير النظافة والأمان الحيوي وتحسين الأداء اليومي."
+        },
+        {
+            name: "محاكاة التهوية الجانبية - حساب دقيق للشتاء",
+            url: "https://abdallaazouz.github.io/cross-ventilation/",
+            icon: "fas fa-wind",
+            description: "برنامج متخصص لمحاكاة التهوية العرضية (Cross) وحساب دقيق للتهوية الشتوية في عنابر الدواجن. توفير الراحة الحرارية."
+        },
+        {
+            name: "فحص أمراض الدواجن بالذكاء الاصطناعي (طبيعي/غير طبيعي)",
+            url: "https://abdallaazouz.github.io/normal.abnormal/",
+            icon: "fas fa-brain",
+            description: "كشف سريع بالكاميرا إذا كان الطائر طبيعيًا أو يعاني من مرض. مناسب للفحص الميداني والتشخيص المبدئي الموثوق."
+        },
+        {
+            name: "كاشف أمراض النباتات (خدمة إضافية)",
+            url: "https://abdallaazouz.github.io/Plant-diseases/",
+            icon: "fas fa-leaf",
+            description: "أداة مساعدة لتشخيص أمراض النباتات في الحقول المجاورة. تحليل صور الأوراق لحماية المحاصيل وتكامل زراعي شامل."
+        },
+        {
+            name: "حساب الحرارة المحسوسة للدواجن",
+            url: "https://abdallaazouz.github.io/Perceived-Temperature/",
+            icon: "fas fa-temperature-high",
+            description: "تقدير درجة الحرارة المحسوسة داخل العنبر مع مراعاة الرطوبة وسرعة الهواء. حماية الطيور من الإجهاد الحراري والبرد."
+        },
+        {
+            name: "التحليل الحراري للعنبر من خلال الصور",
+            url: "https://abdallaazouz.github.io/Thermal-Image-Analysis/",
+            icon: "fas fa-camera",
+            description: "تحليل الصور الحرارية للمباني وتوزيع الحرارة. يساعد في تحسين التهوية وتحديد النقاط الساخنة في عنبر الدواجن."
+        },
+        {
+            name: "تقييم برنامج التحصين الحي والميت للتسمين",
+            url: "https://abdallaazouz.github.io/poultry-vaccination/",
+            icon: "fas fa-syringe",
+            description: "تقييم فاعلية برامج التحصين (حي/ميت) لقطعان التسمين. جدولة وتوصيات لرفع المناعة وتحقيق تحصين مثالي."
+        },
+        {
+            name: "برنامج حساب التجانس (Homogeneity)",
+            url: "https://abdallaazouz.github.io/poultry-Homogeneity/",
+            icon: "fas fa-chart-simple",
+            description: "حساب معامل التجانس لأوزان الطيور. أداة لقياس انتظام القطيع وتحسين برامج التغذية والرعاية."
+        },
+        {
+            name: "إنشاء السيرة الذاتية وتصدير PDF",
+            url: "https://abdallaazouz.github.io/cv_online/",
+            icon: "fas fa-file-pdf",
+            description: "برنامج بسيط لبناء سيرة ذاتية احترافية للعاملين في مجال الدواجن والطب البيطري. تصدير PDF بضغطة زر."
+        },
+        {
+            name: "جميع المعادلات الرياضية لعلم الدواجن",
+            url: "https://abdallaazouz.github.io/math_poultry/",
+            icon: "fas fa-square-root-alt",
+            description: "مرجع شامل لأهم المعادلات: التحويلات الغذائية، متطلبات التهوية، الإنتاج الحراري، الكثافة وغيرها. أداة لا غنى عنها."
+        }
+    ];
+
+    // دالة عرض البطاقات
+    function renderTools() {
+        const grid = document.getElementById('toolsGrid');
+        if(!grid) return;
+        grid.innerHTML = '';
+        toolsData.forEach(tool => {
+            const card = document.createElement('div');
+            card.className = 'tool-card';
+            card.innerHTML = `
+                <div class="card-header">
+                    <i class="${tool.icon}"></i>
+                    <h3>${tool.name}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="desc"><i class="fas fa-info-circle" style="margin-left: 6px; color:#f5a623;"></i> ${tool.description}</div>
+                    <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        <i class="fas fa-external-link-alt"></i> زيارة الأداة
+                    </a>
+                    <div class="url-text">${tool.url.replace('https://', '')}</div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    renderTools();
+</script>
+</body>
+</html>
